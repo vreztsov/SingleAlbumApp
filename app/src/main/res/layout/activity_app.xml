@@ -1,22 +1,139 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingTop="8dp"
+    android:paddingStart="8dp"
+    android:paddingEnd="8dp"
     tools:context=".ui.AppActivity">
 
-    <Button
-        android:id="@+id/play"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal|bottom"
-        android:text="@string/click_me"
-        />
-
-    <VideoView
-        android:id="@+id/video"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/play_layout"
         android:layout_width="match_parent"
-        android:layout_height="300dp"
-        />
-</FrameLayout>
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp">
 
+        <TextView
+            android:id="@+id/album"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/main_album"
+            android:textAllCaps="true"
+            android:textSize="@dimen/standard_font_size"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/album_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textSize="@dimen/bigger_font_size"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/album" />
+
+        <TextView
+            android:id="@+id/artist"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/main_artist"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/album_name" />
+
+        <TextView
+            android:id="@+id/artist_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textSize="@dimen/standard_font_size"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/artist"
+            app:layout_constraintStart_toEndOf="@id/artist"
+            app:layout_constraintTop_toTopOf="@id/artist" />
+
+        <TextView
+            android:id="@+id/year_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:text=""
+            android:textSize="@dimen/standard_font_size"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/artist" />
+
+        <TextView
+            android:id="@+id/genre_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text=""
+            android:textSize="@dimen/standard_font_size"
+            app:layout_constraintBottom_toBottomOf="@id/year_name"
+            app:layout_constraintStart_toEndOf="@id/year_name"
+            app:layout_constraintTop_toTopOf="@id/year_name" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/play_album"
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:checkable="true"
+            app:iconGravity="textStart"
+            app:iconPadding="4dp"
+            app:icon="@drawable/ic_play_pause"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/year_name"
+            tools:ignore="SpeakableTextPresentCheck,DuplicateSpeakableTextCheck" />
+
+        <TextView
+            android:id="@+id/currentTrack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:textSize="@dimen/bigger_font_size"
+            app:layout_constraintStart_toEndOf="@id/play_album"
+            app:layout_constraintTop_toTopOf="@id/play_album"
+            app:layout_constraintBottom_toBottomOf="@id/play_album"
+            tools:text="1"
+            />
+
+        <TextView
+            android:id="@+id/current_position"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:textSize="@dimen/bigger_font_size"
+            app:layout_constraintEnd_toStartOf="@id/duration"
+            app:layout_constraintTop_toTopOf="@id/play_album"
+            app:layout_constraintBottom_toBottomOf="@id/play_album"
+            />
+
+        <TextView
+            android:id="@+id/duration"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:textSize="@dimen/bigger_font_size"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/play_album"
+            app:layout_constraintBottom_toBottomOf="@id/play_album"
+            />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/list_item"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="16dp"
+        android:orientation="vertical"
+        tools:listitem="@layout/item_sound"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+</androidx.appcompat.widget.LinearLayoutCompat>

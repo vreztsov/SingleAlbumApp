@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:padding="8dp">
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/play_item"
+        android:layout_width="40dp"
+        android:layout_height="wrap_content"
+        android:checkable="true"
+        android:contentDescription="@string/action_button"
+        app:icon="@drawable/ic_play_pause"
+        app:iconGravity="textStart"
+        app:iconPadding="4dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+
+    <TextView
+        android:id="@+id/track_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/app_name"
+        android:textSize="@dimen/bigger_font_size"
+        android:layout_marginStart="16dp"
+        app:layout_constraintBottom_toBottomOf="@+id/play_item"
+        app:layout_constraintStart_toEndOf="@+id/play_item"
+        app:layout_constraintTop_toTopOf="@+id/play_item" />
+
+    <TextView
+        android:id="@+id/track_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textSize="@dimen/bigger_font_size"
+        app:layout_constraintBottom_toBottomOf="@+id/play_item"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/play_item" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="8dp"
+        android:background="@color/black"
+        app:layout_constraintTop_toBottomOf="@+id/play_item" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

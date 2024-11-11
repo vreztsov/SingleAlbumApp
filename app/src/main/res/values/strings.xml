@@ -1,4 +1,7 @@
 <resources>
-    <string name="app_name">NMedia</string>
-    <string name="click_me">Click me</string>
+    <string name="app_name">SingleAlbumApp</string>
+    <string name="background_button">Background button</string>
+    <string name="action_button">action_button</string>
+    <string name="main_artist">"Artist: "</string>
+    <string name="main_album">ALBUM</string>
 </resources>
